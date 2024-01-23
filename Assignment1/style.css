@@ -18,45 +18,28 @@ body,html {
 }
 
 #Header h5 {
-    display: inline-block; /* 将h5元素设置为行内块元素，使其在同一行 */
+    display: inline-block; 
     margin: 10px; 
-    margin-right: 50px; /* 右边距，根据需要调整 */
+    margin-right: 50px; 
     
 }
 #Header a {
-    text-decoration: none; /* 去除超链接的下划线 */
-    color: inherit; /* 继承父元素的文字颜色 */
+    text-decoration: none; 
+    color: inherit; 
 }
 #Header a:hover {
-    color: rgb(179, 142, 67); /* 其他链接悬停时的颜色，可以根据需要调整 */
+    color: rgb(179, 142, 67); 
 }
 #Header a#home{
     color: rgb(179, 142, 67);
 }
-/*
-#MainEvents {
-            
-    position: relative;
-    top: 10px;
-    left: 60px;
-    padding: 15px;
-    color: rgb(179, 142, 67);
-    
-}
-*/
+
 #Header #MainEvents{
-    margin-right: 400px; /* 根据需要调整右外边距的值 */
+    margin-right: 400px; 
     margin-left: 100px;
     color: rgb(179, 142, 67);
 }
-/*
-#header{
-    background-color: #4b76c5;
-    position:fixed;
-    width: 100%;
-    z-index: 100;
-}
-*/
+
 .image3{
     background-image: url("image3.png");
     min-height: 730px;
@@ -72,8 +55,8 @@ body,html {
     left: 49%;
     
     transform: translate(-50%, -50%);
-    color: #fff; /* 文字颜色，您可以根据需要进行更改 */
-    font-size: 30px; /* 文字大小，您可以根据需要进行更改 */
+    color: #fff; 
+    font-size: 30px; 
     text-align: center;
     font-family:  'Times New Roman', Times, serif;
 }
@@ -123,11 +106,11 @@ body,html {
     transform: translate(-35%, -50%);
     z-index:3;
     font-size: 28px;
-    background: rgba(255, 255, 255, 0); /* 设置透明度为0的白色背景 */
-    border: 2px solid #fff; /* 添加2px宽度的白色边框 */
-    color: #fff; /* 设置文字颜色为白色 */
-    width: 325px; /* 设置按钮的宽度，根据需要调整值 */
-    height: 50px; /* 设置按钮的高度，根据需要调整值 */
+    background: rgba(255, 255, 255, 0); 
+    border: 2px solid #fff; 
+    color: #fff; 
+    width: 325px; 
+    height: 50px; 
 }
 
 
@@ -164,19 +147,12 @@ body,html {
     transform: translate(-35%, -50%);
     z-index:3;
     font-size: 20px;
-    background: rgba(255, 255, 255, 0); /* 设置透明度为0的白色背景 */
-    border: 2px solid #fff; /* 添加2px宽度的白色边框 */
-    color: #fff; /* 设置文字颜色为白色 */
-    width: 200px; /* 设置按钮的宽度，根据需要调整值 */
-    height: 40px; /* 设置按钮的高度，根据需要调整值 */
+    background: rgba(255, 255, 255, 0);
+    border: 2px solid #fff; 
+    color: #fff; 
+    width: 200px; 
+    height: 40px; 
 }
-
-
-
-
-
-
-
 
 #image1 {
     
@@ -234,14 +210,11 @@ body,html {
 
 #flower2 {
 position:relative;
-top: 130px; /* 距离父元素底部的距离，可以根据需要调整 */
-margin-left: 740px; /* 距离父元素左侧的距离，可以根据需要调整 */
+top: 130px; 
+margin-left: 740px; 
 z-index: 2;
 transform: scale(0.85);
-width: 30%; /* 设置宽度为25% */
-
-
-
+width: 30%; 
 }
 
 
@@ -267,7 +240,7 @@ left:1in;
 width:1.5in;
 font-size:14px;
 color:#fff;
-border-right: 1px solid #fff; /* 添加1像素宽度的黑色右边框 */
+border-right: 1px solid #fff; 
 
 }
 
@@ -278,8 +251,8 @@ left:1.7in;
 width:1.3in;
 font-size:14px;
 color:#fff;
-border-right: 1px solid #fff; /* 添加1像素宽度的黑色右边框 */
-padding-right: 20px; /* 为了使文字内容不贴着边框，添加右边距 */
+border-right: 1px solid #fff; 
+padding-right: 20px; 
 padding-left: 2px;
 }
 #col3{
@@ -295,9 +268,9 @@ color:#fff;
 position:relative;
 
 top:180px;
-background-color: rgb(185, 163, 92); /* 背景颜色，可以根据需要修改 */
-width: 1079px; /* 宽度，可以根据需要修改 */
-height: 150px; /* 高度，可以根据需要修改 */
+background-color: rgb(185, 163, 92); 
+width: 1079px;
+height: 150px;
 left:83px;
 bottom:50px;
     
@@ -309,11 +282,11 @@ left: 80%;
 transform: translate(-35%, -50%);
 z-index:3;
 font-size: 16px;
-background: rgba(255, 255, 255, 0); /* 设置透明度为0的白色背景 */
-border: 2px solid #fff; /* 添加2px宽度的白色边框 */
-color: #fff; /* 设置文字颜色为白色 */
-width: 200px; /* 设置按钮的宽度，根据需要调整值 */
-height: 40px; /* 设置按钮的高度，根据需要调整值 */
+background: rgba(255, 255, 255, 0); 
+border: 2px solid #fff; 
+color: #fff; 
+width: 240px;
+height: 40px; 
 }
 #white{
     position:relative;
