@@ -1,5 +1,5 @@
 body,html {
-    
+    width:1239px;
     margin: 0;
     padding: 0;
 }
@@ -9,12 +9,13 @@ body,html {
     align-items: center;
     justify-content: space-between;
     position: fixed;
-    background: rgb(254, 255, 255);
+    background: rgb(255, 255, 255);
     top: 0;
     left: 0;
     right: 0;
-    padding: 10px;
+    padding: 7px;
     z-index: 10;
+    overflow: hidden;
 }
 
 #Header h5 {
@@ -38,6 +39,8 @@ body,html {
     margin-right: 400px; 
     margin-left: 100px;
     color: rgb(179, 142, 67);
+    white-space: nowrap; 
+   
 }
 
 .image3{
@@ -47,24 +50,38 @@ body,html {
     background-repeat: no-repeat;
     background-size: auto;
     background-position-y:80% ;
+    
 
 }
 .image3-text {
-    position: absolute;
-    top: 38%;
+    position: relative;
+    top:38%;
     left: 49%;
-    
-    transform: translate(-50%, -50%);
+    transform: translate(-50%, 30%);
     color: #fff; 
     font-size: 30px; 
     text-align: center;
     font-family:  'Times New Roman', Times, serif;
+    white-space: nowrap; 
+    overflow: hidden; 
 }
 
 #image1,#flower{
     position: relative;
     z-index: 2;
+    overflow: hidden;
 }
+
+
+#TwoImages{
+    background-color: #ffffff;
+    position: relative;
+    width: 100%;
+    z-index: 2;
+    overflow: hidden; 
+    white-space: nowrap; 
+    }
+    
 
 #flower {
     
@@ -167,7 +184,7 @@ body,html {
     font-size: 60px;
     font-family: "Garamond", sans-serif;
     position:relative;
-    top: 30px;
+    top: 15px;
     z-index: 2;
     
 }
@@ -178,8 +195,10 @@ body,html {
     font-size: 44px;
     font-family: "Tahoma", sans-serif;
     position: relative;
-    top: 30px;
+    top: -10px;
     z-index: 2;
+    white-space: nowrap; 
+    overflow: hidden; 
 }
 
 #Jimmy{
@@ -187,7 +206,6 @@ body,html {
     font-size: 16px;
     color: rgb(179, 142, 67);
     position: relative;
-    top: 30px;
     z-index: 2;
 }
 
@@ -195,15 +213,16 @@ body,html {
     position: relative;
     top:100px;
     left:30px;
-    right:30px;
+    right:10px;
+    transform: scale(1);
     background-image: url("image2.png");
     min-height: 750px;
     background-attachment: fixed;
-    background-position: center;
     background-repeat: no-repeat;
     background-size: auto;
     background-position-y:20%;
-  
+    overflow:hidden;
+    margin-left:54px; 
 }
 
 
@@ -215,17 +234,6 @@ margin-left: 740px;
 z-index: 2;
 transform: scale(0.85);
 width: 30%; 
-}
-
-
-
-
-
-#TwoImages{
-background-color: #ffffff;
-position: relative;
-width: 100%;
-z-index: 2;
 }
 
 
