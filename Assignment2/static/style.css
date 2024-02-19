@@ -1,0 +1,310 @@
+body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    min-height: 100vh;
+}
+.title-container {
+    text-align: center;
+    color: rgb(6, 6, 6);
+    background-image: url("image/back.svg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-size: 155%;
+    background-position-x: -330px;
+    padding: 20px;
+    border-radius: 10px;
+    position: relative;
+    width: 100%;
+    height:500px;
+    box-sizing: border-box;
+}
+.search-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 20px;
+    width: 1100px;
+    margin: 0 auto;
+}
+
+.button-container {
+    display: flex; /* 确保按钮容器是一个弹性容器 */
+    align-items: center; /* 在垂直方向上居中 */
+}
+.clear-btn {
+    width: 10%;
+    padding: 8px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+
+
+#company-logo {
+    margin-top: 20px; /* 设置公司 logo 底部外边距 */
+    margin-left:690px;
+}
+
+
+#stock-info-container table {
+width: 55%; /* 设置表格宽度为100% */
+
+}
+#stock-info-container{
+margin-left: 540px;
+display:none;
+margin-top:30px;
+
+}
+
+
+#stock-info-container td {
+text-align: right; /* 设置表格单元格中的文本右对齐 */
+/*padding: 1px; /* 添加一些内边距，使内容不贴近表格边缘 */
+
+border-top: 1px solid #e5e0e0;
+border-width: 1px;
+
+
+
+}
+
+#stock-info-container strong {
+margin-right: 1px; /* 设置 strong 元素的右外边距，增加与内容之间的距离 */
+}
+
+#stock-info-container .info-text {
+text-align: left;
+padding-left: 2px;
+font-weight:350 ; /* 或者使用数字值如 300，400，500，...，越大越粗 */
+
+}
+
+#action-buttons {
+display: none;
+margin-top: 150px; /* 调整按钮顶部外边距 */
+}
+
+
+
+
+#action-buttons {
+display: flex;
+flex-direction: row;
+justify-content: flex-start;
+background-color: rgb(251, 249, 249);
+width: 1150px; /* 自定义宽度 */
+height: 60px; /* 自定义高度 */
+text-align: left;
+margin-left:200px;
+
+}
+
+#action-buttons button {
+
+margin-right: 5px; /* 可以根据需要调整按钮之间的间距 */
+border: none; /* 取消按钮边框 */
+font-size: 20px; /* 自定义字体大小 */
+background-color: transparent; /* 使背景透明，可以根据需要设置其他背景颜色 */
+
+cursor: pointer; /* 显示为手型指示器，表示可以点击 */
+
+box-sizing: border-box; /* 让 padding 和 border 包含在宽度内 */
+height:60px;
+}
+#action-buttons button:hover {
+/* 鼠标悬停时的样式 */
+background-color: lightgray; /* 设置悬停时的背景颜色 */
+}
+
+#action-buttons button:active,
+#action-buttons button:focus {
+/* 按钮被点击时的样式 */
+background-color: darkgray; /* 设置点击时的背景颜色 */
+}
+#result-container #error-message-no-result {
+margin-top: 250px;
+background-color: rgb(207, 200, 200); /* Change the background color as needed */
+padding: 8px; /* Change the padding as needed */
+display: none;
+width: 700px; /* Change the width as needed */
+height: 21px;
+margin-left:410px;
+font-size: 20px;
+border-bottom: 5px solid transparent;
+border-radius: 15px;
+}
+#stock-summary table {
+width: 28%; /* 设置表格宽度为100% */
+margin-left:540px;
+}
+
+
+
+#stock-summary{
+margin-right:150px;
+display:none;
+margin-top:20px;
+}
+#stock-summary td {
+text-align: right; /* 设置表格单元格中的文本右对齐 */
+padding: 2px; /* 添加一些内边距，使内容不贴近表格边缘 */
+border-top: 1px solid #e5e0e0;
+border-width: 1px;
+
+}
+
+#stock-summary strong {
+margin-right: 2px; /* 设置 strong 元素的右外边距，增加与内容之间的距离 */
+}
+
+#stock-summary .info-text {
+text-align: left;
+padding-left: 5px;
+font-weight:350 ;
+}
+
+.rectangle {
+    width: 300px; /* 长方形的宽度 */
+    height: 50px; /* 长方形的高度 */
+    display: flex;
+    font-size: 12px; /* 设置字体大小 */
+    margin-left:600px;
+    margin-top: 20px;
+}
+
+.square {
+    flex: 1; /* 均分7个正方形 */
+    /*border: 1px solid #000; /* 正方形的边框 */
+    box-sizing: border-box; /* 边框不增加元素尺寸 */
+    height: 100%; /* 正方形高度占满容器 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.square1 {
+    background-color: white; /* 白色背景 */
+    font-size: 18px;
+    color:red
+    
+}
+
+
+.square2{
+    background-color: red; /* 红色背景 */
+    font-size: 18px;
+    color:white
+}
+.square3  {
+    background-color: rgb(182, 52, 12); /* 红色背景 */
+    font-size: 18px;
+    color:white
+}
+.square4  {
+    background-color: rgb(45, 79, 5); /* 红色背景 */
+    font-size: 18px;
+    color:white
+}
+.square5  {
+    background-color: green; /* 红色背景 */
+    font-size: 18px;
+    color:white
+}
+.square6  {
+    background-color: rgb(0, 255, 26);
+    font-size: 18px;
+    color:white
+}
+
+.square7 {
+    background-color: white; /* 白色背景 */
+    font-size: 18px;
+    color:rgb(0, 255, 26)
+}
+#Recommendation-Trends{
+    margin-top:20px;
+    margin-left:150px;
+    
+}
+
+
+.news-container {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    width: 80%;
+    margin: 20px auto;
+    height:900px;
+    margin-left:400px;
+}
+
+.news-rectangle {
+    flex: 1;
+    background-color: rgb(251, 249, 249);
+    box-sizing: border-box;
+    height: 150px;
+    padding: 10px;
+    width:1150px;
+    margin-top:20px;
+    margin-left:200px;
+}
+#news-container{
+display:none;
+}
+.news-link:active {
+color: red;
+}
+
+.search-container {
+position: relative;
+}
+
+.search-btn {
+position: absolute;
+top: 50%;
+left: 133px; /* 调整左边距 */
+transform: translateY(-50%);
+width: 17px; /* 调整宽度 */
+height: 17px; /* 调整高度 */
+cursor: pointer; /* 将鼠标光标修改为手型 */
+
+}
+
+.search-input {
+height:26px;
+margin-left:115px;
+width: 75%;
+padding: 8px;
+padding-left: 48px; /* 调整输入框左边内边距，留出图标的空间 */
+border: 1px solid #ccc;
+border-radius: 15px;
+font-size: 17px;
+outline: 2px solid transparent; /* 设置透明的轮廓线 */
+}
+
+.clear-btn {
+width: 13px;
+height: 28px;
+cursor: pointer;
+position: absolute;
+top: 50%;
+right:115px; /* 调整按钮距离搜索框右边的距离 */
+transform: translateY(-50%);
+border-left: 1px solid #ccc; /* 左边框样式 */
+padding-left: 15px;
+}
+
+
+
+#chart-container {
+height: 800px;
+width: 1150px;
+display:none;
+margin-top:30px;
+margin-left:190px;
+}

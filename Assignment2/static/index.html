@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stock Search</title>
+    <link rel="stylesheet" href="static/style.css">
+    <script src="static/script.js"></script>
+    <style>   
+    </style>
+</head>
+<body>
+    <div class="title-container">
+        <h1>Stock Search</h1>
+        <div class="search-container">
+
+            
+                <!-- 当点击搜索图标时，调用searchStock函数 -->
+            <img src="static/image/search-solid.svg" alt="Search Icon" class="search-btn" onclick="searchStock()">
+            
+
+            <!-- 输入框，用户输入股票代码的地方 -->
+            <input type="text" id="stock_ticker_input" class="search-input" placeholder="Enter Stock Ticker Symbol" onkeypress="handleKeyPress(event)" required>
+            
+            <div class="button-container">
+                <img src="static/image/times-solid.svg" alt="Close Icon" class="clear-btn" onclick = "deleteText()">
+            </div>
+
+        </div>
+
+        <div id="error-message-empty"></div>
+
+        <div id="result-container">
+        
+            <!-- 按钮容器 -->
+            <div id="action-buttons" style="display: none;">
+                <button id="company-button" onclick="showCompanyInfo()">Company</button>
+                <button onclick="showStockSummary()">Stock Summary</button>
+                <button onclick="showCharts()">Charts</button>
+                <button onclick="showLatestNews()">Latest News</button>
+            </div>
+
+            <img id="company-logo" src="" alt="Company Logo" style="width: 120px; height: auto; display:none">
+        
+            <!-- 表格 company -->
+            <div id="stock-info-container">
+                <table id="table">
+                    <tr>
+                        <td><strong>Company Name</strong></td>
+                        <td id="company-name" class="info-text"></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Stock Ticker Symbol</strong></td>
+                        <td id="stock-ticker" class="info-text"></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Stock Exchange Code</strong></td>
+                        <td id="exchange-code" class="info-text"></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Company Start Date</strong></td>
+                        <td id="start-date" class="info-text"></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Category</strong></td>
+                        <td id="category" class="info-text"></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                </table>
+            </div>
+
+            <!--表格stock-->
+            <div id="stock-summary">
+                <table id="table">
+                    <tr>
+                        <td><strong>StockTicker Symbol</strong></td>
+                        <td id="StockTicker-Symbol" class="info-text"></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Trading Day</strong></td>
+                        <td id="Trading-Day" class="info-text"></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Previous Closing Price</strong></td>
+                        <td id="Previous-Closing-Price" class="info-text"></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Opening Price</strong></td>
+                        <td id="Opening-Price" class="info-text"></td>
+                    </tr>
+                    <tr>
+                        <td><strong>High Price</strong></td>
+                        <td id="High-Price" class="info-text"></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Low Price</strong></td>
+                        <td id="Low-Price" class="info-text"></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Change</strong></td>
+                        <td id="Change" class="info-text"></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Change Percent</strong></td>
+                        <td id="Change-Percent" class="info-text"></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                    </tr>
+
+                </table>
+
+                <div class="rectangle">
+                    <div class="square square1">Strong Sell</div>
+                    <div class="square square2" id="text2"></div>
+                    <div class="square square3" id="text3"></div>
+                    <div class="square square4" id="text4"></div>
+                    <div class="square square5" id="text5"></div>
+                    <div class="square square6" id="text6"></div>
+                    <div class="square square7">Strong Buy</div>
+                </div>
+
+                <div id="Recommendation-Trends">Recommendation Trends</div>
+            </div>
+
+            <div id="news-container">
+                <div class="news-rectangle" id="news-rectangle1"></div>
+                <div class="news-rectangle" id="news-rectangle2"></div>
+                <div class="news-rectangle" id="news-rectangle3"></div>
+                <div class="news-rectangle" id="news-rectangle4"></div>
+                <div class="news-rectangle" id="news-rectangle5"></div>
+            </div>
+
+            
+        
+            <script src="https://code.highcharts.com/stock/highstock.js"></script>
+            <script src="https://code.highcharts.com/stock/modules/exporting.js"></script>
+            <script src="https://code.highcharts.com/stock/modules/export-data.js"></script>
+            <script src="https://code.highcharts.com/modules/accessibility.js"></script>
+            <div id="chart-container"></div>
+
+            <!-- 错误消息 -->
+            <div id="error-message-no-result"></div>        </div>
+
+
+
+    </div>
+
+   
+
+    <!-- JavaScript脚本，定义searchStock函数 -->
+    <script>
+        
+    </script>
+ 
+</body>
+
+</html>
