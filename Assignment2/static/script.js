@@ -29,7 +29,7 @@ let user_stockTicker;
         document.getElementById('error-message-empty').textContent = '';
 
         // 通过 Fetch API 将股票代码发送到 Flask 服务器
-        fetch('/search?stock_ticker=' + stockTicker)
+        fetch('/Assignment2/search?stock_ticker=' + stockTicker)
         .then(response => response.json())
         .then(data => {
             // 将数据保存在变量中
