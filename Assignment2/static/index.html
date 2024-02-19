@@ -3,8 +3,8 @@
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Stock Search</title>
-    <link rel="stylesheet" href="static/style.css">
-    <script src="static/script.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
     <style>   
     </style>
 </head>
@@ -15,14 +15,14 @@
 
             
                 <!-- 当点击搜索图标时，调用searchStock函数 -->
-            <img src="static/image/search-solid.svg" alt="Search Icon" class="search-btn" onclick="searchStock()">
+            <img src="image/search-solid.svg" alt="Search Icon" class="search-btn" onclick="searchStock()">
             
 
             <!-- 输入框，用户输入股票代码的地方 -->
             <input type="text" id="stock_ticker_input" class="search-input" placeholder="Enter Stock Ticker Symbol" onkeypress="handleKeyPress(event)" required>
             
             <div class="button-container">
-                <img src="static/image/times-solid.svg" alt="Close Icon" class="clear-btn" onclick = "deleteText()">
+                <img src="image/times-solid.svg" alt="Close Icon" class="clear-btn" onclick = "deleteText()">
             </div>
 
         </div>
