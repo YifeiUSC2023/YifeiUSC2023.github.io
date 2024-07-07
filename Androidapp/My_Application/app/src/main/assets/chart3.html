@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>SMA Chart</title>
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script src="https://code.highcharts.com/stock/modules/exporting.js"></script>
+</head>
+<body>
+<div id="container" style="height: 400px; min-width: 310px"></div>
+<script>
+    function updateChartWithData(periods, strongSellData, sellData, holdData, buyData, strongBuyData) {
+    Highcharts.chart('container', {
+        chart: {
+            type: 'column',
+<!--            backgroundColor: '#f2f6f7'-->
+        },
+        title: {
+            text: 'Recommendation Trends',
+            align: 'center',
+            style: {
+                fontSize: '20px'
+            }
+        },
+        xAxis: {
+            categories: periods
+        },
+        yAxis: {
+            min: 0,
+            title: {
+                text: '#Analysis'
+            },
+            tickInterval: 10
+        },
+        plotOptions: {
+            column: {
+                stacking: 'normal',
+                dataLabels: {
+                    enabled: true,
+                    color: 'black',
+                    style: {
+                        textOutline: '0px'
+                    },
+                    allowOverlap: true,
+                    formatter: function () {
+                        return this.y > 0 ? this.y : '';
+                    }
+                }
+            }
+        },
+        series: [{
+            name: 'Strong Buy',
+            data: strongBuyData,
+            stack: 'recommendations',
+            type: 'column',
+            color: '#196600'
+        }, {
+            name: 'Buy',
+            data: buyData,
+            stack: 'recommendations',
+            type: 'column',
+            color: '#009933'
+        }, {
+            name: 'Hold',
+            data: holdData,
+            stack: 'recommendations',
+            type: 'column',
+            color: '#997300'
+        }, {
+            name: 'Sell',
+            data: sellData,
+            stack: 'recommendations',
+            type: 'column',
+            color: '#ff3333'
+        }, {
+            name: 'Strong Sell',
+            data: strongSellData,
+            stack: 'recommendations',
+            type: 'column',
+            color: '#990000'
+        }]
+    });
+}
+</script>
+</body>
+</html>

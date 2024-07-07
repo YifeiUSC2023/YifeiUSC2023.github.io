@@ -1,0 +1,41 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="380dp"
+    android:layout_height="wrap_content"
+    android:background="#4CAF50"
+    android:padding="20dp">
+
+    <TextView
+        android:id="@+id/tvMessage1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Congratulations!"
+        android:textColor="#FFFFFF"
+        android:textSize="28sp"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:layout_marginBottom="8dp" />
+
+    <TextView
+        android:id="@+id/tvMessage2"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:text="You have successfully bought 4 shares of AAPL."
+        android:textColor="#FFFFFF"
+        android:layout_marginStart="50dp"
+        android:textSize="18sp"
+        android:gravity="center"
+
+        android:layout_below="@id/tvMessage1"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="20dp" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnDone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="DONE"
+        android:backgroundTint="#FBFBFB"
+        android:textColor="#4CAF50"
+        android:layout_below="@id/tvMessage2"
+        android:layout_marginTop="8dp" />
+</RelativeLayout>

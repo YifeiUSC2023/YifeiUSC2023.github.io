@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">Stocks</string>
+    <string name="title_activity_splash">splash_activity</string>
+    <string name="search">Search</string>
+    <string name="search_hint">Search...</string>
+    <string name="clear_search">Clear</string>
+    <string name="company_info">%1$s\n%2$s</string>
+    <string name="about">About</string>
+    <string name="ipo_start_date_label">IPO Start Date </string>
+    <string name="industry">Industry</string>
+    <string name="webpage">Webpage</string>
+    <string name="stats">Stats</string>
+    <string name="open_price">Open Price</string>
+
+
+</resources>

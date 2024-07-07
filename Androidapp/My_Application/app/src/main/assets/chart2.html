@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>SMA Chart</title>
+    <script src="https://code.highcharts.com/stock/highstock.js"></script>
+    <script src="https://code.highcharts.com/stock/indicators/indicators.js"></script>
+    <script src="https://code.highcharts.com/stock/indicators/sma.js"></script>
+    <script src="https://code.highcharts.com/stock/modules/exporting.js"></script>
+    <script src="https://code.highcharts.com/stock/modules/accessibility.js"></script>
+    <script src="https://code.highcharts.com/stock/indicators/volume-by-price.js"></script>
+</head>
+<body>
+<div id="container" style="height: 400px; min-width: 310px"></div>
+<script>
+    function updateChartWithData(ohlc, volume, symbol) {
+        Highcharts.stockChart('container', {
+            rangeSelector: { selected: 2 },
+            title: { text: symbol + ' Stock Price' },
+            subtitle: {
+            text: 'With SMA and Volume by Price technical indicators'
+        },
+            series: [{
+                id: 'primarySeries', // 确保你有这个ID
+                type: 'candlestick',
+                name: symbol + ' Historical',
+                data: ohlc,
+                tooltip: { valueDecimals: 2 }
+            }, {
+                type: 'column',
+                id:'volume',
+                name: 'Volume',
+                data: volume,
+                yAxis: 1
+            }, {
+                type: 'sma',
+                name: 'SMA',
+                linkedTo: 'primarySeries', // 这里需要链接到蜡烛图系列的ID
+                zIndex: 1,
+                marker: { enabled: false },
+                color: '#FF0000' // 设置SMA线颜色为红色
+            },
+            {
+                type: 'vbp',
+                linkedTo: 'primarySeries',
+                params: {
+                    volumeSeriesID: 'volume'
+                },
+                dataLabels: {
+                    enabled: false
+                },
+                zoneLines: {
+                    enabled: false
+                     }
+
+            }
+            ],
+            yAxis: [{ // Primary yAxis
+                labels: { align: 'right', x: -3 },
+                title: { text: 'OHLC' },
+                height: '60%',
+                lineWidth: 2,
+                resize: { enabled: true }
+            }, { // Secondary yAxis
+                labels: { align: 'right', x: -3 },
+                title: { text: 'Volume' },
+                top: '65%',
+                height: '35%',
+                offset: 0,
+                lineWidth: 2
+            }]
+        });
+    }
+</script>
+</body>
+</html>

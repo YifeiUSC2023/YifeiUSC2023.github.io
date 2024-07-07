@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Hourly Price Chart</title>
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script>
+        function updateChart(prices, times, symbol,changeInPrice) {
+            var lineColor = 'black'; // 默认颜色为黑色
+            if (changeInPrice < 0) {
+                lineColor = 'red'; // 如果价格下降，线条为红色
+            } else if (changeInPrice > 0) {
+                lineColor = 'green'; // 如果价格上升，线条为绿色
+            }
+
+
+            Highcharts.chart('container', {
+        chart: {
+            type: 'line'
+        },
+        title: {
+            text: symbol+' Hourly Price Chart'
+        },
+        xAxis: {
+            type: 'datetime',
+            dateTimeLabelFormats: {
+                hour: '%H:%M'  // 格式化小时和分钟
+            },
+            tickInterval: 6 * 3600 * 1000
+
+        },
+        yAxis: {
+            opposite: true, // 将 Y 轴放在右侧
+            title: {
+              text: '' // 移除y轴的标题
+            }
+        },
+        legend: {
+            enabled: false  // 禁用图例
+        },
+        series: [{
+            name: 'Price',
+            data: prices.map(function (value, index) {
+                return [times[index], value];
+            }),
+            marker: {
+                enabled: false  // 不显示数据点的标记
+            },
+            color: lineColor
+        }]
+    });
+        }
+    </script>
+</head>
+<body>
+<div id="container" style="width:100%; height:400px;"></div>
+</body>
+</html>

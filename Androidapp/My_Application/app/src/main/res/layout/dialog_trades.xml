@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:radius="16dp"
+    android:padding="24dp">
+
+    <TextView
+        android:id="@+id/tvDialogTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Trade Apple Inc shares"
+        android:textAppearance="?attr/textAppearanceHeadline6"
+        android:layout_gravity="center_horizontal"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="16dp"
+        android:gravity="center_vertical">
+
+        <EditText
+            android:id="@+id/etShares"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:inputType="number"
+            android:hint="0"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="shares"
+            android:layout_marginStart="8dp"
+            android:textSize="16sp"/>
+    </LinearLayout>
+
+
+    <TextView
+        android:id="@+id/tvCalculation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="110dp"
+        android:text="1"
+        android:layout_marginTop="-10dp"/>
+
+    <TextView
+        android:id="@+id/tvCostInfo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="80dp"
+        android:text="$25000.00 to buy AAPL"
+        android:layout_marginTop="8dp"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_horizontal"
+        android:layout_marginTop="24dp">
+
+        <ImageButton
+            android:id="@+id/btnBuy"
+            android:layout_width="100dp"
+            android:layout_height="45dp"
+            android:src="@drawable/buy"
+            android:background="?attr/selectableItemBackground"
+            android:layout_marginRight="56dp"
+             />
+
+        <ImageButton
+            android:id="@+id/btnSell"
+            android:layout_width="100dp"
+            android:layout_height="45dp"
+            android:src="@drawable/sell"
+            android:background="?attr/selectableItemBackground"
+
+            android:layout_marginStart="16dp"/>
+
+    </LinearLayout>
+</LinearLayout>

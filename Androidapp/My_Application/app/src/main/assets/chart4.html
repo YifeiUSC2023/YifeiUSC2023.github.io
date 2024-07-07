@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>SMA Chart</title>
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script src="https://code.highcharts.com/modules/exporting.js"></script>
+    <script src="https://code.highcharts.com/modules/accessibility.js"></script>
+</head>
+<body>
+<div id="container" style="height: 400px; min-width: 310px"></div>
+<script>
+    function updateChartWithData(actual, periods, estimate, surprise, symbol) {
+        Highcharts.chart('container', {
+            chart: {
+                type: 'spline',
+<!--                backgroundColor: '#f0f0f0',-->
+            },
+            title: {
+                text: 'Historical EPS Surprises'
+            },
+            xAxis: {
+                categories: periods,
+                labels: {
+                    formatter: function() {
+                        return '<span style="text-align: center; display: inline-block; width: 100%;">' +
+                        this.value + '<br>' + 'Surprise: ' + surprise[this.pos] + '</span>';
+                    },
+                    useHTML: true,
+                },
+            },
+            yAxis: {
+                title: {
+                    text: 'Quarterly EPS'
+                },
+<!--                tickInterval: 0.25,-->
+            },
+            series: [{
+                type: 'spline',
+                name: 'Actual',
+                data: actual
+            }, {
+                type: 'spline',
+                name: 'Estimate',
+                data: estimate
+            }],
+            responsive: {
+                rules: [{
+                    condition: {
+                        maxWidth: 500
+                    },
+                    chartOptions: {
+                        legend: {
+                            layout: 'horizontal',
+                            align: 'center',
+                            verticalAlign: 'bottom'
+                        }
+                    }
+                }]
+            }
+        });
+    }
+</script>
+</body>
+</html>
+
+</script>
+</body>
+</html>

@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:id="@+id/informationBar"
+    app:cardElevation="8dp"
+    app:cardCornerRadius="4dp"
+    android:layout_marginBottom="2dp"
+    >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="16dp">
+
+        <TextView
+            android:id="@+id/tickerTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:textSize="16sp"
+            android:text="AAPL" />
+
+        <TextView
+            android:id="@+id/nameTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tickerTextView"
+            android:textSize="14sp"
+            android:text="Apple Inc"
+            android:layout_marginTop="4dp"/>
+
+        <TextView
+            android:id="@+id/currentPriceTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:text="$172.91"
+            android:textStyle="bold"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/changePercentageTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/currentPriceTextView"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="4dp"
+            android:text="$1.54 (0.90%)"
+            android:textSize="14sp"
+            android:textColor="@android:color/holo_green_dark" />
+
+
+
+
+
+
+
+
+        <!-- Additional views such as buttons or icons can be added here -->
+
+    </RelativeLayout>
+    <ImageView
+        android:id="@+id/delete_view"
+        android:layout_width="match_parent"
+        android:layout_height="88dp"
+        android:src="@drawable/delete"
+        android:background="#FF0000"
+        android:visibility="gone"
+
+        android:layout_alignParentEnd="true"/>
+
+
+
+</androidx.cardview.widget.CardView>
+

@@ -1,0 +1,722 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/main"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".SearchResultsActivity">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar_search"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:background="#FFFFFF"
+        app:navigationIcon="?attr/homeAsUpIndicator"
+        app:layout_constraintTop_toTopOf="parent">
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/star_border"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:src="@drawable/star_border"
+                android:padding="16dp"
+
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent" />
+
+            <ImageView
+                android:id="@+id/full_star"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:src="@drawable/full_star"
+                android:padding="16dp"
+                android:visibility="gone"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent" />
+
+            <TextView
+                android:id="@+id/toolbar_title"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="-70dp"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:textAppearance="?attr/textAppearanceSubtitle1"
+                android:gravity="center"
+                app:layout_constraintEnd_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.appcompat.widget.Toolbar>
+
+
+
+
+
+
+
+    <View
+        android:id="@+id/toolbar_divider_search"
+        android:layout_width="0dp"
+        android:layout_height="0.4dp"
+        android:background="@android:color/darker_gray"
+        android:elevation="8dp"
+        app:layout_constraintTop_toBottomOf="@id/toolbar_search"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+
+        <ProgressBar
+            android:id="@+id/progressBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="340dp"
+            app:layout_constraintTop_toBottomOf="@id/toolbar_divider_search"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+
+
+
+
+
+
+
+<!--公司名字和symbol-->
+    <TextView
+        android:id="@+id/companyNameTextView"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="70dp"
+        android:text=""
+        android:maxLines="3"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.423"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/toolbar_divider_search" />
+
+    <ImageView
+        android:id="@+id/companyLogoImageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginStart="8dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/toolbar_divider_search" />
+<!--价格-->
+    <TextView
+        android:id="@+id/companyStockTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+
+        android:layout_marginStart="222dp"
+        android:gravity="end"
+        android:text=""
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.423"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/toolbar_divider_search" />
+
+<!--    highchart图-->
+    <WebView
+        android:id="@+id/chartWebView"
+        android:layout_width="0dp"
+        android:layout_height="420dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintTop_toBottomOf="@id/companyStockTextView"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+    <WebView
+        android:id="@+id/chartHistoricalWebview"
+        android:layout_width="0dp"
+        android:layout_height="420dp"
+        android:layout_marginTop="16dp"
+        android:visibility="gone"
+        app:layout_constraintTop_toBottomOf="@id/companyStockTextView"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+
+<!--        图标-->
+        <ImageView
+            android:id="@+id/chart_historical"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="436dp"
+            android:src="@drawable/selector_chart_historical"
+            android:contentDescription="historical_chart_description"
+            android:padding="8dp"
+            app:layout_constraintTop_toBottomOf="@id/companyStockTextView"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/chart_hour" />
+
+
+        <View
+            android:id="@+id/historical_underline"
+            android:layout_width="204dp"
+            android:layout_height="2dp"
+            android:layout_marginStart="204dp"
+            android:visibility="gone"
+            android:background="#3F51B5"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/chart_historical" />
+
+        <ImageView
+            android:id="@+id/chart_hour"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="436dp"
+            android:contentDescription="hour_chart_description"
+            android:padding="8dp"
+            android:src="@drawable/selector_chart_hour"
+            app:layout_constraintEnd_toStartOf="@+id/chart_historical"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/companyStockTextView" />
+
+        <View
+            android:id="@+id/chart_hour_underline"
+            android:layout_width="204dp"
+            android:layout_height="2dp"
+            android:layout_marginEnd="204dp"
+            android:visibility="gone"
+            android:background="#3F51B5"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/chart_hour" />
+
+
+
+        <!--portifolio-->
+        <TextView
+            android:id="@+id/portfolioTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="60dp"
+            android:text="Portfolio"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            android:layout_marginEnd="305dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/chart_hour" />
+
+        <!-- Container for portfolio details, directly below portfolioTextView -->
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/portfolioDetailsContainer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/portfolioTextView"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
+
+            <!-- Text Views for displaying portfolio information on the left -->
+            <TextView
+                android:id="@+id/information1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="Shares Owned:        0"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/buttonTrade"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <!-- Other TextViews similarly chained below information1 -->
+            <TextView
+                android:id="@+id/information2"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="Avg. Cost/Share:     $0.00"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/buttonTrade"
+                app:layout_constraintTop_toBottomOf="@id/information1" />
+
+            <TextView
+                android:id="@+id/information3"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="Total Cost:                $0.00"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/buttonTrade"
+                app:layout_constraintTop_toBottomOf="@id/information2" />
+
+            <TextView
+                android:id="@+id/information4"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="Change:                     $0.00"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/buttonTrade"
+                app:layout_constraintTop_toBottomOf="@id/information3" />
+
+            <TextView
+                android:id="@+id/information5"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="Market Value:           $0.00"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/buttonTrade"
+                app:layout_constraintTop_toBottomOf="@id/information4" />
+
+            <!-- Button for trading on the right -->
+            <ImageButton
+                android:id="@+id/buttonTrade"
+                android:layout_width="120dp"
+                android:layout_height="36dp"
+                android:src="@drawable/trade"
+                android:background="?attr/selectableItemBackground"
+                android:scaleType="fitCenter"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@id/information1"
+                app:layout_constraintBottom_toBottomOf="@id/information5" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <!--stats-->
+        <TextView
+        android:id="@+id/statsTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:text="@string/stats"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.022"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/portfolioDetailsContainer" />
+
+    <TextView
+        android:id="@+id/openPriceTextView"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="2dp"
+        android:layout_marginStart="20dp"
+        android:text="Open Price"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/statsTextView" />
+    <TextView
+        android:id="@+id/highPriceTextView"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="2dp"
+        android:layout_marginStart="200dp"
+        android:text="High Price"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/statsTextView" />
+
+    <TextView
+        android:id="@+id/lowPriceTextView"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="2dp"
+        android:layout_marginStart="20dp"
+        android:text="Low Price"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/openPriceTextView" />
+    <TextView
+        android:id="@+id/prevPriceTextView"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="2dp"
+        android:layout_marginStart="200dp"
+        android:text="Prev. Price"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/highPriceTextView" />
+
+
+
+
+
+
+
+
+
+
+
+    <TextView
+        android:id="@+id/aboutTitleTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="60dp"
+        android:text="@string/about"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.022"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/statsTextView" />
+
+    <TextView
+        android:id="@+id/ipoStartTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="@string/ipo_start_date_label"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.057"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/aboutTitleTextView" />
+
+    <!-- Webpage -->
+    <TextView
+        android:id="@+id/industryTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:text="@string/industry"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.054"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/ipoStartTextView" />
+
+    <!-- Company Peers -->
+    <TextView
+        android:id="@+id/webpageTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:text="@string/webpage"
+        android:background="@android:color/transparent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.09"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/industryTextView" />
+
+    <TextView
+        android:id="@+id/companyPeersTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:text="Company Peers"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.04"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/webpageTextView" />
+
+    <HorizontalScrollView
+        android:id="@+id/horizontalScrollView"
+        android:layout_width="match_parent"
+        android:layout_marginStart="139dp"
+        android:layout_marginEnd="30dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="-20dp"
+        app:layout_constraintTop_toBottomOf="@id/companyPeersTextView">
+
+        <LinearLayout
+            android:id="@+id/peersContainer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal" />
+    </HorizontalScrollView>
+
+        <TextView
+            android:id="@+id/InsightTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:text="Insight"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.022"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/companyPeersTextView" />
+
+        <TextView
+            android:id="@+id/titleTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="25dp"
+            android:text="Social Sentiments"
+            android:layout_marginStart="140dp"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.022"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/InsightTextView" />
+        <TableLayout
+            android:layout_width="340dp"
+            android:id="@+id/tableTextView"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="25dp"
+            android:stretchColumns="*"
+            app:layout_constraintTop_toBottomOf="@id/titleTextView">
+
+            <!-- 标题行 -->
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                >
+
+                <TextView
+                    android:text=""
+                    android:id="@+id/nameTextView"
+                    android:gravity="center"
+                    android:layout_margin="1dp"
+                    android:background="@android:color/darker_gray"
+                    android:padding="8dp"/>
+
+                <TextView
+                    android:text="MSPR"
+                    android:gravity="center"
+                    android:layout_margin="1dp"
+                    android:background="@android:color/darker_gray"
+                    android:padding="8dp"/>
+
+                <TextView
+                    android:text="Change"
+                    android:gravity="center"
+                    android:layout_margin="1dp"
+                    android:background="@android:color/darker_gray"
+                    android:padding="8dp"/>
+            </TableRow>
+
+            <!-- 总计行 -->
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:text="Total"
+                    android:gravity="center"
+                    android:layout_margin="1dp"
+                    android:background="@android:color/darker_gray"
+                    android:padding="8dp"/>
+
+                <TextView
+                    android:text=""
+                    android:id="@+id/totalMSPR"
+                    android:gravity="center"
+                    android:layout_margin="1dp"
+                    android:background="#E3E0E0"
+                    android:padding="8dp"/>
+
+                <TextView
+                    android:text=""
+                    android:id="@+id/totalChange"
+                    android:gravity="center"
+                    android:layout_margin="1dp"
+                    android:background="#E3E0E0"
+                    android:padding="8dp"/>
+            </TableRow>
+
+            <!-- positive -->
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:text="Positive"
+                    android:gravity="center"
+                    android:layout_margin="1dp"
+                    android:background="@android:color/darker_gray"
+                    android:padding="8dp"/>
+
+
+                <TextView
+                    android:text=""
+                    android:gravity="center"
+                    android:id="@+id/positiveMSPR"
+                    android:layout_margin="1dp"
+                    android:background="#E3E0E0"
+                    android:padding="8dp"/>
+
+                <TextView
+                    android:text=""
+                    android:id="@+id/positiveChange"
+                    android:gravity="center"
+                    android:layout_margin="1dp"
+                    android:background="#E3E0E0"
+                    android:padding="8dp"/>
+            </TableRow>
+
+            <!-- 消极行 -->
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:text="Negative"
+                    android:gravity="center"
+                    android:layout_margin="1dp"
+                    android:background="@android:color/darker_gray"
+                    android:padding="8dp"/>
+
+                <TextView
+                    android:text=""
+                    android:gravity="center"
+                    android:id="@+id/negativeMSPR"
+                    android:layout_margin="1dp"
+                    android:background="#E3E0E0"
+                    android:padding="8dp"/>
+
+                <TextView
+                    android:text=""
+                    android:gravity="center"
+                    android:id="@+id/negativeChange"
+                    android:layout_margin="1dp"
+                    android:background="#E3E0E0"
+                    android:padding="8dp"/>
+            </TableRow>
+
+        </TableLayout>
+
+        <WebView
+            android:id="@+id/histogramChartWebView"
+            android:layout_width="0dp"
+            android:layout_height="420dp"
+            android:layout_marginTop="16dp"
+            app:layout_constraintTop_toBottomOf="@id/tableTextView"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <WebView
+            android:id="@+id/curveChartWebView"
+            android:layout_width="0dp"
+            android:layout_height="420dp"
+            android:layout_marginTop="16dp"
+            app:layout_constraintTop_toBottomOf="@id/histogramChartWebView"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <TextView
+            android:id="@+id/NewsTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:text="News"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.022"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/curveChartWebView" />
+
+
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/newsCardView"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            app:cardElevation="10dp"
+            app:cardCornerRadius="20dp"
+            app:layout_constraintTop_toBottomOf="@id/NewsTextView"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintWidth_percent="0.95">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardElevation="5dp"
+                app:cardCornerRadius="15dp">
+
+            <ImageView
+                android:id="@+id/newsImageView"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                app:cardCornerRadius="40dp"
+                android:scaleType="centerCrop"/>
+        </androidx.cardview.widget.CardView>
+
+
+                <TextView
+                    android:id="@+id/newsTitleTextView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ellipsize="end"
+                    android:maxLines="3"
+                    android:layout_marginTop="8dp"
+                    android:text=""/>
+
+
+
+
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+
+
+
+        <ScrollView
+            android:id="@+id/scrollview2"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="8dp"
+            app:layout_constraintTop_toBottomOf="@id/newsCardView"
+            android:fillViewport="true">
+
+            <LinearLayout
+                android:id="@+id/newsContainer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+            </LinearLayout>
+        </ScrollView>
+
+
+
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>
