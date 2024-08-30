@@ -1,0 +1,181 @@
+
+<div *ngIf="showbuyMessage" class="alert alert-success success-alert" role="alert">
+  <div class="success-message">{{ buyMessage }}</div>
+  <button type="button" class="btn-close" aria-label="Close" (click)="showbuyMessage = false"></button>
+</div>
+<div *ngIf="showsellMessage" class="alert alert-danger success-alert" role="alert">
+  <div class="success-message">{{ sellMessage }}</div>
+  <button type="button" class="btn-close" aria-label="Close" (click)="showsellMessage = false"></button>
+</div>
+
+<div class = 'title'>
+    <h1>My Portfolio</h1>
+</div>
+<div class = 'wallet'>
+    <h4>Money in Wallet:${{ balance | number:'1.0-2' }}</h4>
+</div>
+
+<div *ngIf="isLoading" class="spinner-container">
+  <img src="assets/spinner.png" alt="Loading..." class="spinner-image">
+</div>
+
+<div *ngIf="!isLoading && transactions.length === 0" class="alert alert-warning custom-alert" role="alert">
+  Currently you don't have any stock.
+</div>
+
+<div *ngFor="let transaction of transactions" class="container mt-5">
+    <div class="row">
+      <div class="col">
+        <div class="card custom-card-position">
+            <div class="custom-title-bg d-flex align-items-center" (click)="navigateToStockDetails(transaction.ticker)">
+                <h3 class="card-title m-0 mr-2">{{transaction.ticker}}</h3>
+                <h5 class="card-title ml-5 mt-2">{{transaction.description}}</h5>
+              </div>
+          <div class="card-body">
+            <!-- 使用Bootstrap的行来分割卡片内容 -->
+            <div class="row">
+              <!-- 文本标签列 -->
+              <div class="col-md-3">
+                <p>Quantity:</p>
+                <p>Avg. Cost/Share:</p>
+                <p>Total Cost:</p>
+              </div>
+              <!-- 数值列 -->
+              <div class="col-md-3">
+                <p>{{transaction.quantity | number:'1.0-2'}}</p>
+                <p>{{transaction.avgCost | number:'1.0-2'}}</p>
+                <p>{{transaction.totalCost | number:'1.0-2'}}</p>
+              </div>
+              <!-- 第三块内容 -->
+              <div class="col-md-3">
+                <p>Change: </p>
+                <p>Current Price: </p>
+                <p>Market Value:</p>
+              </div>
+              <!-- 第四块内容 -->
+              <div class="col-md-3">
+                <div class="d-flex align-items-center mb-2">
+                    <!-- 条件图片，尝试使用mr-3或更大的类来增加右边距 -->
+                    <img *ngIf="(transaction.currentPrice - transaction.avgCost) > 0" src="assets/greenTri.png" alt="Green Triangle" class="triangle-icon mb-2 mr-5">
+                    <img *ngIf="(transaction.currentPrice - transaction.avgCost) < 0" src="assets/redTri.png" alt="Red Triangle" class="triangle-icon mb-2 mr-5">
+                    <span [ngStyle]="{'color': (transaction.currentPrice - transaction.avgCost) > 0 ? 'green' :
+                                      (transaction.currentPrice - transaction.avgCost) < 0 ? 'red' : 'black'}" class="mb-2">
+                      {{ (transaction.currentPrice - transaction.avgCost) | number:'1.0-2' }}
+                    </span>
+                  </div>
+                <div class="d-flex align-items-center mb-2">
+                  <span [ngStyle]="{'color': (transaction.currentPrice - transaction.avgCost) > 0 ? 'green' :
+                                    (transaction.currentPrice - transaction.avgCost) < 0 ? 'red' : 'black'}"class="mb-2">
+                     {{transaction.currentPrice | number:'1.0-2'}}
+                  </span>
+                </div>
+                <div class="d-flex align-items-center mb-2">
+                  <span [ngStyle]="{'color': (transaction.currentPrice - transaction.avgCost) > 0 ? 'green' :
+                                    (transaction.currentPrice - transaction.avgCost) < 0 ? 'red' : 'black'}"class="mb-2">
+                     {{ (transaction.quantity * transaction.currentPrice) | number:'1.0-2' }}
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="card-footer" style="background-color: #eeeded; width: 100%;">
+            <!-- 这里可以添加你想在灰色背景行显示的内容 -->
+            <img 
+        src="assets/blueBuy.jpg" 
+        (click)="openModal(modalContent)"
+        style="cursor: pointer; width: 60px; height: 35px;"
+        alt="Buy Button"
+        
+      >
+
+      <ng-template #modalContent let-modal>
+        <div class="modal-header">
+          <h4 class="modal-title">{{transaction.ticker}}</h4>
+          <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+
+        <div class="modal-body">
+          <p>Current Price: {{transaction.currentPrice | number:'1.0-2'}}</p>
+          <p>Money in wallet:${{ balance | number:'1.0-2' }}</p>
+          <p>Quantity:
+            <input type="number" [(ngModel)]="quantity" min="0" name="quantity">
+          </p>
+          
+          
+          <p *ngIf="(transaction.currentPrice * quantity) > balance" class="warning-message">Not enough money in your wallet!</p>
+          
+        </div>
+
+        <div class="modal-footer">
+          
+          <p>Total: {{transaction.currentPrice * quantity | number:'1.2-2' }}</p>
+        
+        
+          <img [src]="(balance >= transaction.currentPrice * quantity && quantity > 0) ? 'assets/Buy.jpg' : 'assets/BuyDisabled.jpg'"
+               alt="Buy" 
+               style="cursor: pointer; width: 60px; height: 35px;" 
+               [style.opacity]="(balance >= transaction.currentPrice * quantity && quantity > 0) ? '1' : '0.5'"
+               [style.pointer-events]="(balance >= transaction.currentPrice * quantity && quantity > 0) ? 'auto' : 'none'"
+               (click)="(balance >= transaction.currentPrice * quantity && quantity > 0)? buyStock(transaction.ticker,modal) : null">
+        </div>
+      
+      </ng-template>
+
+
+      <img 
+        src="assets/Sell.jpg" 
+        (click)="openModal2(modalContent2)"
+        style="cursor: pointer; width: 60px; height: 35px;margin-left:10px;"
+        alt="Sell Button"
+        
+      >
+      <ng-template #modalContent2 let-modal>
+        <div class="modal-header">
+          <h4 class="modal-title">{{transaction.ticker}}</h4>
+          <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+
+        <div class="modal-body">
+          <p>Current Price: {{transaction.currentPrice | number:'1.0-2'}}</p>
+          <p>Money in wallet:${{ balance | number:'1.0-2' }}</p>
+          <p>Quantity:
+            <input type="number" [(ngModel)]="quantity2" min="0" name="quantity2">
+          </p>
+          <p *ngIf="quantity2>transaction.quantity" class="warning-message">You cannot sell the stocks that you don't have! </p>
+
+        </div>
+
+
+        <div class="modal-footer">
+          <p>Total: {{ transaction.currentPrice * quantity2 | number:'1.2-2' }}</p>
+          <!-- <button [disabled]="(quantity2 <= transaction.quantity&& quantity2 > 0)"  style="border: none; background-color: transparent;"> -->
+            <img [src]="(quantity2 <= transaction.quantity&& quantity2 > 0) ? 'assets/GreenSell.jpg' : 'assets/GreenSellDisabled.jpg'"
+               alt="sell" 
+               style="cursor: pointer; width: 60px; height: 35px;" 
+               [style.opacity]="(quantity2 <= transaction.quantity&& quantity2 > 0) ? '1' : '0.5'"
+               [style.pointer-events]="(quantity2 <= transaction.quantity&& quantity2 > 0) ? 'auto' : 'none'"
+               (click)="(quantity2 <= transaction.quantity&& quantity2 > 0)? sellStock(transaction.ticker,modal) : null">
+          <!-- </button> -->
+        </div>
+      </ng-template>
+
+
+
+
+
+
+
+
+
+
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

@@ -1,0 +1,46 @@
+
+<div class="centered-form-container">
+    <h1>STOCK SEARCH</h1>
+    
+
+  <form class="form-inline my-2 my-lg-0" (submit)="submitSearch(searchControl.value); $event.preventDefault()">
+    <div class="input-group">
+      <input matInput
+             class="form-control mr-sm-2 custom-input"
+             type="search"
+             placeholder="Enter stock ticker symbol"
+             aria-label="Search"
+             [formControl]="searchControl"
+             [matAutocomplete]="auto">
+            
+      <mat-autocomplete #auto="matAutocomplete" (optionSelected)="searchStock($event.option.value)">
+        <mat-option *ngIf="isLoading" class="is-loading">Loading...</mat-option>
+        <ng-container *ngIf="!isLoading">
+          <mat-option *ngFor="let item of filteredSymbols" [value]="item.symbol">
+            <!-- {{ item.symbol }} - {{ item.description}} -->
+            {{ item.symbol }} | {{ item.description}}
+          </mat-option>
+        </ng-container>
+        <div *ngIf="isLoading" class="spinner-container">
+          <img src="assets/spinner.png" alt="Loading..." class="spinner-image">
+        </div>
+      </mat-autocomplete>
+        
+      
+    
+    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">
+      <img src="assets/search.png" alt="Search">
+    </button>
+    
+    <!-- 清除搜索框内容的按钮 -->
+    <button class="clear-button" type="button" (click)="clearSearch()">
+      <img src="assets/cross.png" alt="Clear">
+    </button>
+    </div>
+  </form>
+
+  <div *ngIf="inputEmpty" class="alert alert-danger custom-empty-input-alert" role="alert">
+    Please enter a valid ticker.
+</div>
+    
+</div>

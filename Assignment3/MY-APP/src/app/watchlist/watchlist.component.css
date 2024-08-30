@@ -1,0 +1,86 @@
+.title{
+    margin-left:250px;
+    margin-top:40px;
+}
+.custom-card {
+max-width: 1060px; /* 或您想要的任何宽度 */
+width: 100%; /* 确保在较小屏幕上卡片可以填满容器 */
+margin: auto; /* 使卡片在容器中居中 */
+
+}
+.custom-card-body {
+display: flex;
+align-items: center; /* 内容垂直居中 */
+
+}
+
+/* 控制右侧文本区域的宽度或者添加边距 */
+.custom-card-right {
+margin-left: 50px; 
+
+max-width: 50%; 
+text-align: left; /* 让所有子元素内的文本左对齐 */
+}
+
+.card-text{
+margin-right:200px;
+font-weight:600;
+text-align: left;
+}
+.text-red {
+color: red;
+}
+
+.text-green {
+color: green;
+}
+
+.text-black {
+color: black;
+}
+
+.btn-close-sm {
+width: 3px;  /* 减小按钮宽度 */
+height: 3px;  /* 减小按钮高度 */
+
+}
+.custom-center {
+display: flex;
+justify-content: center; /* 水平居中 */
+}
+
+.custom-alert {
+background-color: #ffecb3;
+color: #665c1e;
+padding: 10px;
+margin: 15px 0; /* 上下外边距 */
+border-radius: 5px;
+text-align: center;
+width: 70%; /* 控制宽度 */
+}
+.clickable-card {
+cursor: pointer;
+}
+
+@keyframes spin {
+from {
+transform: rotate(0deg);
+}
+to {
+transform: rotate(360deg);
+}
+}
+.spinner-container {
+display: flex;
+justify-content: center; 
+align-items: center; 
+height: 100vh; /* 使用视口高度作为容器的高度，这样子项就可以在整个视口中居中 */
+width: 100vw; /* 使用视口宽度作为容器的宽度 */
+transform: translateY(-30%);
+}
+
+.spinner-image {
+animation: spin 1s linear infinite;
+width: 100px; /* 缩小图片尺寸到合适大小 */
+height: 100px; /* 缩小图片尺寸到合适大小 */
+}

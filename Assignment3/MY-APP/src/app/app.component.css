@@ -1,0 +1,55 @@
+html, body {
+  height: 100%;
+  margin: 0;
+  
+}
+  body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  
+}
+.page-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+  .custom-navbar-bg {
+    background-color: #2323d4; /* 这是一个示例颜色，你可以选择任何更深的蓝色 */
+   
+  }
+  
+  /* 调整导航项的边距 */
+  .navbar-nav {
+    margin-right: 20px; /* 根据需要调整这个值 */
+  }
+  .navbar-brand {
+    margin-left: 20px;
+    /* margin-top:40px; 根据需要调整这个值 */
+  }
+  .nav-link {
+  cursor: pointer; /* 显示手形光标 */
+  transition: all 0.3s ease; /* 平滑过渡效果 */
+}
+.active-nav-link {
+  border: 2px solid #ffffff; /* 白色边框 */
+  border-radius: 10px; /* 圆角的半径，根据需要调整 */
+}
+  .content-wrap {
+    padding-top: 60px; /* 根据导航栏实际高度调整 */
+  min-height: 94.8vh;
+}
+  
+  .footer-bar {
+  background-color: #bbb6b6; /* 灰色背景 */
+  color: #0b0b0b; /* 文字颜色 */
+  text-align: center; /* 文字居中 */
+  padding: 10px 0; /* 上下内边距 */
+  /* position: fixed;固定在页面底部 */
+  left: 0;
+  bottom: 0;
+  width: 100%; /* 宽度占满屏幕 */
+  font-size: 14px; /* 字体大小 */
+  
+  
+  }

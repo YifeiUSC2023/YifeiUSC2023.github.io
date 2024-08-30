@@ -1,0 +1,40 @@
+
+<div class = title>
+    <h1>My WatchList</h1>
+</div>
+
+<div *ngIf="isLoadingWatchlist" class="spinner-container">
+  <img src="assets/spinner.png" alt="Loading..." class="spinner-image">
+</div>
+
+<div class="custom-center">
+    <div *ngIf="favourites.length === 0" class="custom-alert" role="alert">
+      Currently you don't have any stock in your watchlist.
+    </div>
+  </div>
+  
+
+<div class="container my-3">
+    <div *ngFor="let fav of favourites" class="row mb-3">
+      <div class="col-12">
+        <div class="card custom-card clickable-card " (click)="navigateToStockDetails(fav.stockInfo.ticker)">
+            <button type="button" class="btn-close btn-close-sm position-absolute top-0 start-0" aria-label="Close" (click)="removeFavourite(fav.stockInfo.ticker) ;$event.stopPropagation()"></button>
+          <div class="card-body d-flex justify-content-between">
+            <div class="card-left">
+              <h5 class="card-title"><strong>{{ fav.stockInfo.ticker }}</strong></h5>
+              <p>{{ fav.stockInfo.name }}</p>
+            </div>
+            <div class="custom-card-right">
+                <p class="card-text" [ngClass]="{'text-red': fav.quoteInfo.d < 0, 'text-green': fav.quoteInfo.d > 0, 'text-black': fav.quoteInfo.d === 0}">
+                  {{ fav.quoteInfo.c | number:'1.2-2'}}
+                </p>
+                <p class="card-text" [ngClass]="{'text-red': fav.quoteInfo.d < 0, 'text-green': fav.quoteInfo.d > 0, 'text-black': fav.quoteInfo.d === 0}">
+                    <img [src]="(fav.quoteInfo.d < 0) ? 'assets/redTri.png' : (fav.quoteInfo.d > 0) ? 'assets/greenTri.png' : 'assets/neutralTri.png'" alt="Trend" style="width: 20px; height: 20px,;">
+                    {{ fav.quoteInfo.d | number:'1.2-2'}} ({{ fav.quoteInfo.dp | number:'1.2-2' }}%)
+                </p>
+              </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

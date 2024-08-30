@@ -1,0 +1,91 @@
+.centered-form-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 30px; /* 距离上方的距离，可以根据需要调整 */
+}
+
+.form-inline {
+  width: 100%;
+  max-width: 500px; /* 搜索表单的最大宽度，可以根据需要调整 */
+}
+
+.input-group {
+display: flex;
+align-items: center; /* 垂直居中对齐 */
+position: relative;
+border-radius: 20px; /* 整个组的圆角 */
+background-color: rgb(255, 255, 255); /* 背景色 */
+border: 1px solid #ccc; 
+border-color: rgb(53, 15, 201)
+}
+
+.custom-input {
+flex-grow: 1;
+border: none;
+border-radius: 20px;
+padding-right: 30px; /* 为清除按钮留出空间 */
+border-color: #0056b3;
+}
+.custom-input:focus {
+box-shadow: none; /* 移除获得焦点时的阴影 */
+}
+.clear-button {
+border: none; /* 移除边框 */
+background: none; /* 移除背景 */
+padding: 0; /* 移除内边距 */
+cursor: pointer; /* 确保鼠标悬停时显示为指针 */
+margin-right: 20px;
+margin-bottom:  2px;
+}
+
+.clear-button img {
+width: 20px; /* 或其他尺寸，根据需要调整 */
+height: 20px; /* 保持图片比例 */
+}
+
+.custom-input::-webkit-search-cancel-button {
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+.btn.btn-outline-success.my-2.my-sm-0 {
+border: none; /* 移除边框 */
+background-color: transparent; /* 使背景透明 */
+padding: 0; /* 移除内边距 */
+}
+
+.btn.btn-outline-success.my-2.my-sm-0 img {
+width: 23px; /* 或其他尺寸，根据需要调整 */
+height: 23px; /* 保持图片比例 */
+cursor: pointer; /* 确保鼠标悬停时显示为指针 */
+margin-right:20px;
+}
+
+@keyframes spin {
+from {
+  transform: rotate(0deg);
+}
+to {
+  transform: rotate(360deg);
+}
+}
+.spinner-container {
+display: flex;
+/* justify-content: center; 水平居中 */
+/* align-items: center; 垂直居中 */
+height: 40px; /* 或根据需要调整 */
+}
+
+.spinner-image {
+animation: spin 1s linear infinite;
+width: 30px; /* 缩小图片尺寸到合适大小 */
+height: 30px; /* 缩小图片尺寸到合适大小 */
+margin-left: 15px;
+}
+.custom-empty-input-alert{
+margin-top: 20px; /* 向下移动提示框 */
+width: 100%; /* 拉宽提示框 */
+max-width: 1000px; /* 或根据需要调整最大宽度 */
+text-align: center;
+}
