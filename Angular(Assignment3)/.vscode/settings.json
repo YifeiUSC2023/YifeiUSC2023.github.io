@@ -1,5 +1,0 @@
-{
-    "appService.defaultWebAppToDeploy": "undefined/subscriptions/78bf19e2-606e-4a3e-9fbb-1f01db3ccb52/resourceGroups/appsvc_linux_centralus/providers/Microsoft.Web/sites/MyfirstNodeApp666777",
-    "appService.deploySubpath": "MY-APP",
-    "git.ignoreLimitWarning": true
-}
